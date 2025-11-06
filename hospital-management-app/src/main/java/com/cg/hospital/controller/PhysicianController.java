@@ -1,11 +1,9 @@
 package com.cg.hospital.controller;
 
-import com.cg.hospital.entity.Physician;
+import com.cg.hospital.dto.DepartmentPhysicianResponseDTO;
 import com.cg.hospital.service.PhysicianService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/physicians")
@@ -17,8 +15,10 @@ public class PhysicianController {
         this.physicianService = physicianService;
     }
 
+    // ✅ Get physicians (name + position) for a department, along with department name
     @GetMapping("/department/{deptId}")
-    public ResponseEntity<List<Physician>> getPhysiciansByDepartment(@PathVariable Integer deptId) {
-        return ResponseEntity.ok(physicianService.getPhysiciansByDepartment(deptId));
+    public ResponseEntity<DepartmentPhysicianResponseDTO> getPhysiciansByDepartment(@PathVariable Integer deptId) {
+        DepartmentPhysicianResponseDTO response = physicianService.getPhysiciansByDepartment(deptId);
+        return ResponseEntity.ok(response);
     }
 }
