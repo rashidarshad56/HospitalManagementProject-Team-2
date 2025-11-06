@@ -15,10 +15,10 @@ public class PhysicianController {
         this.physicianService = physicianService;
     }
 
-    // ✅ Get physicians (name + position) for a department, along with department name
     @GetMapping("/department/{deptId}")
     public ResponseEntity<DepartmentPhysicianResponseDTO> getPhysiciansByDepartment(@PathVariable Integer deptId) {
         DepartmentPhysicianResponseDTO response = physicianService.getPhysiciansByDepartment(deptId);
         return ResponseEntity.ok(response);
     }
 }
+
