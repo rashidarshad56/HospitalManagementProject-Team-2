@@ -1,8 +1,7 @@
 package com.cg.hospital.service;
 
-import com.cg.hospital.entity.Physician;
-import java.util.List;
+import com.cg.hospital.dto.DepartmentPhysicianResponseDTO;
 
 public interface PhysicianService {
-    List<Physician> getPhysiciansByDepartment(Integer departmentId);
+    DepartmentPhysicianResponseDTO getPhysiciansByDepartment(Integer departmentId);
 }
