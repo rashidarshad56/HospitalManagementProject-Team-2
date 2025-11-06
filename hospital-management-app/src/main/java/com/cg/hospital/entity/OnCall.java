@@ -21,6 +21,7 @@ public class OnCall {
 
     @ManyToOne
     @JoinColumn(name = "Nurse", referencedColumnName = "EmployeeID", insertable = false, updatable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private Nurse nurse;
 
 	public Long getId() {
@@ -61,12 +62,6 @@ public class OnCall {
 
 	public void setNurse(Nurse nurse) {
 		this.nurse = nurse;
-	}
-
-	@Override
-	public String toString() {
-		return "OnCall [id=" + id + ", nurseId=" + nurseId + ", onCallStart=" + onCallStart + ", onCallEnd=" + onCallEnd
-				+ ", nurse=" + nurse + "]";
 	}
 
     
