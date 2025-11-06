@@ -34,6 +34,7 @@ public class Appointment {
     @ManyToMany(mappedBy = "appointments")
     @JsonIgnoreProperties("appointments")
     private Set<Patient> patients;
+    //my appointment entity
 
     // getters/setters
     public Integer getAppointmentId() { return appointmentId; }
