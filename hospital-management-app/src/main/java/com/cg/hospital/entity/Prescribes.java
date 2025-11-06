@@ -38,6 +38,14 @@ public class Prescribes {
     @JoinColumn(name = "Medication", referencedColumnName = "Code", insertable = false, updatable = false)
     private Medication medicationDetails;
 
+    @ManyToOne
+    @JoinColumn(name = "Patient", referencedColumnName = "SSN", insertable = false, updatable = false)
+    private Patient patientDetails;
+    
+    @ManyToOne
+    @JoinColumn(name = "Physician", referencedColumnName = "EmployeeID", insertable = false, updatable = false)
+    private Physician physicianDetails;
+
 	public Long getPatient() {
 		return patient;
 	}
@@ -85,9 +93,25 @@ public class Prescribes {
 	public void setMedicationDetails(Medication medicationDetails) {
 		this.medicationDetails = medicationDetails;
 	}
+
+	public Patient getPatientDetails() {
+		return patientDetails;
+	}
+
+	public void setPatientDetails(Patient patientDetails) {
+		this.patientDetails = patientDetails;
+	}
+
+	public Physician getPhysicianDetails() {
+		return physicianDetails;
+	}
+
+	public void setPhysicianDetails(Physician physicianDetails) {
+		this.physicianDetails = physicianDetails;
+	}
     
     
-
-    // Getters and setters
-
+    
+    
+    
 }
