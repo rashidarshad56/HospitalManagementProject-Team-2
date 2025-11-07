@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 	import com.cg.hospital.entity.Stay;
 	import com.cg.hospital.repository.StayRepository;
@@ -27,3 +27,4 @@ package com.cg.hospital.service.impl;
 	
 
 }
+
