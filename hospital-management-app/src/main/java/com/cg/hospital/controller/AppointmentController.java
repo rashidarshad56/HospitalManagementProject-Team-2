@@ -22,7 +22,7 @@ public class AppointmentController {
 
 @GetMapping("/patients/{employeeId}")
     public ResponseEntity<List<AppointmentPatientDTO>> getPatientsByPhysician(@PathVariable int employeeId) {
-	  	List<AppointmentPatientDTO> result = appointmentService.getPatientsByPhysicianEmployeeId(employeeId);
+	    List<AppointmentPatientDTO> result = appointmentService.getPatientsByPhysicianEmployeeId(employeeId);
 	    return ResponseEntity.ok(result);
-    }	
-}
+	}
+    }
