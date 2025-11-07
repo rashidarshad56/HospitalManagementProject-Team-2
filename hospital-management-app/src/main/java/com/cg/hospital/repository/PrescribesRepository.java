@@ -1,4 +1,4 @@
-package com.cg.hospital.repositories;
+package com.cg.hospital.repository;
 
 import java.util.List;
 

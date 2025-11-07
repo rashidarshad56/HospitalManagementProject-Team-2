@@ -1,4 +1,4 @@
-package com.cg.hospital.repositories;
+package com.cg.hospital.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
