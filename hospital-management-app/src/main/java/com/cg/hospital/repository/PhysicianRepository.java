@@ -10,10 +10,14 @@ import java.util.List;
 
 public interface PhysicianRepository extends JpaRepository<Physician, Integer> {
 
-    // Custom query to fetch only name and position of physicians by department ID
+    // Fetch all physicians (optional filtering)
+    @Query("SELECT new com.cg.hospital.dto.PhysicianDTO(p.name, p.position) FROM Physician p")
+    List<PhysicianDTO> findAllPhysicians();
+
+    // Fetch physicians by department ID
     @Query("SELECT new com.cg.hospital.dto.PhysicianDTO(p.name, p.position) " +
            "FROM Physician p JOIN p.affiliations a WHERE a.department.departmentId = :deptId")
     List<PhysicianDTO> findPhysiciansByDepartmentId(@Param("deptId") Integer deptId);
+    List<Physician> findByAffiliationsDepartmentDepartmentId(Integer departmentId);
 
-    List<Physician> findByAffiliationsDepartmentDepartmentId(Integer deptId);
 }
