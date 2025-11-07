@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.hospital.dto.PrescriptionDTO;
 import com.cg.hospital.entity.Prescribes;
-import com.cg.hospital.repositories.PrescribesRepository;
+import com.cg.hospital.repository.PrescribesRepository;
 import com.cg.hospital.service.PrescribesService;
 
 @Service
@@ -32,3 +32,4 @@ public class PrescribeServiceImpl implements PrescribesService{
             .collect(Collectors.toList());
 	}       
 }
+
