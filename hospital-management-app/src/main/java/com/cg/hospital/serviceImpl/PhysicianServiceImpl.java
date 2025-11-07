@@ -23,6 +23,12 @@ public class PhysicianServiceImpl implements PhysicianService {
         this.departmentRepo = departmentRepo;
     }
 
+@Override
+public List<PhysicianDTO> getAllPhysicians() {
+    return physicianRepo.findAllPhysicians();
+}
+
+
     @Override
     public DepartmentPhysicianResponseDTO getPhysiciansByDepartment(Integer departmentId) {
         // Fetch the department
