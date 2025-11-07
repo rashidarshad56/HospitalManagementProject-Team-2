@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.hospital.dto.AppointmentSummaryDTO;
 import com.cg.hospital.entity.Patient;
-import com.cg.hospital.repositories.PatientRepository;
+import com.cg.hospital.repository.PatientRepository;
 import com.cg.hospital.service.PatientService;
 
 @Service
@@ -35,3 +35,4 @@ public class PatientServiceImpl implements PatientService{
 		                .toList();
 		}
 	}
+
