@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import com.cg.hospital.dto.RoomDTO;
 import com.cg.hospital.repository.RoomRepository;
@@ -22,4 +22,5 @@ public class RoomServiceImpl implements RoomService {
                 .map(room -> new RoomDTO(room.getRoomNumber(), room.getRoomType(), room.getUnavailable()))
                 .collect(Collectors.toList());
     }
+
 }
