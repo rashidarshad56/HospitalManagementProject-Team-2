@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import com.cg.hospital.dto.BlockDTO;
 import com.cg.hospital.entity.Block;
@@ -32,4 +32,5 @@ public class BlockServiceImpl implements BlockService {
                 .map(block -> new BlockDTO(block.getBlockFloor(), block.getBlockCode()))
                 .collect(Collectors.toList());
     }
+
 }
