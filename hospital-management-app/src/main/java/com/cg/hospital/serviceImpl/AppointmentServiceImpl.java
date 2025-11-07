@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.hospital.dto.AppointmentPatientDTO;
+import com.cg.hospital.entity.Appointment;
+import com.cg.hospital.entity.Patient;
 import com.cg.hospital.repositories.AppointmentRepository;
 import com.cg.hospital.service.AppointmentService;
 
@@ -16,9 +18,17 @@ public class AppointmentServiceImpl implements AppointmentService{
 	    private AppointmentRepository appointmentRepository;
 
 
-    @Override
-    public List<AppointmentPatientDTO> getPatientsByPhysicianEmployeeId(int employeeId) {
-    	return appointmentRepository.findByPhysician_EmployeeId(employeeId)
+//    @Override
+//    public List<Patient> getPatientsByPhysicianEmployeeId(int employeeId) {
+//        return appointmentRepository.findByPhysician_EmployeeId(employeeId)
+//                                    .stream()
+//                                    .map(Appointment::getPatient)
+//                                    .distinct()
+//                                    .toList();
+//    }
+	 @Override
+	 public List<AppointmentPatientDTO> getPatientsByPhysicianEmployeeId(int employeeId) {
+	     return appointmentRepository.findByPhysician_EmployeeId(employeeId)
 	             .stream()
 	             .map(a -> new AppointmentPatientDTO(
 	                     a.getAppointmentId(),
@@ -29,7 +39,7 @@ public class AppointmentServiceImpl implements AppointmentService{
 	                     a.getEndo()
 	             ))
 	             .toList();
-    	}
+	 }
 }
 
 

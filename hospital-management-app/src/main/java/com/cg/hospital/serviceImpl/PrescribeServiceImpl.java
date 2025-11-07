@@ -8,18 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.cg.hospital.dto.PrescriptionDTO;
 import com.cg.hospital.entity.Prescribes;
-import com.cg.hospital.repository.PrescribesRepository;
-import com.cg.hospital.service.PrescribeService;
+import com.cg.hospital.repositories.PrescribesRepository;
+import com.cg.hospital.service.PrescribesService;
 
 @Service
-public class PrescribeServiceImpl implements PrescribeService {
-
+public class PrescribeServiceImpl implements PrescribesService{
     @Autowired
     private PrescribesRepository prescribesRepo;
 
-    @Override
-    public List<PrescriptionDTO> getPrescriptionsByPatientId(Long patientId) {
-        List<Prescribes> prescribes = prescribesRepo.findByPatient(patientId);
+	@Override
+	public List<PrescriptionDTO> getPrescriptionsByPatientId(Long patientId) {
+		List<Prescribes> prescribes = prescribesRepo.findByPatient(patientId);
         return prescribes.stream()
             .map(p -> new PrescriptionDTO(
                 p.getPatient(),
@@ -31,5 +30,5 @@ public class PrescribeServiceImpl implements PrescribeService {
                 p.getPhysicianDetails() != null ? p.getPhysicianDetails().getPosition() : "Unknown"
             ))
             .collect(Collectors.toList());
-    }
+	}       
 }
