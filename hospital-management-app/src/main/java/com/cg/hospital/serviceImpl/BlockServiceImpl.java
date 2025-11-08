@@ -2,6 +2,7 @@ package com.cg.hospital.serviceImpl;
 
 import com.cg.hospital.dto.BlockDTO;
 import com.cg.hospital.entity.Block;
+import com.cg.hospital.exception.BlockNotFoundException;
 import com.cg.hospital.repository.BlockRepository;
 import com.cg.hospital.service.BlockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,12 @@ public class BlockServiceImpl implements BlockService {
 
     @Override
     public List<BlockDTO> getBlockCodesByFloor(Integer blockFloor) {
-        return blockRepository.findByBlockFloor(blockFloor)
-                .stream()
+        List<Block> blocks = blockRepository.findByBlockFloor(blockFloor);
+        if (blocks.isEmpty()) {
+            throw new BlockNotFoundException("BlockFloor " + blockFloor + " does not exist.");
+        }
+        return blocks.stream()
                 .map(block -> new BlockDTO(block.getBlockFloor(), block.getBlockCode()))
                 .collect(Collectors.toList());
     }
-
 }
