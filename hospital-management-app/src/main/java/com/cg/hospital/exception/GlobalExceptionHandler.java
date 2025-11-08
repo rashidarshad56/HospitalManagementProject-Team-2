@@ -17,4 +17,21 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleGeneralException(Exception ex) {
         return new ResponseEntity<>("Something went wrong: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    @ExceptionHandler(AppointmentNotFoundException.class)
+	    public ResponseEntity<String> handleAppointmentNotFound(AppointmentNotFoundException ex) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+	    }
+     @ExceptionHandler(NurseNotFoundException.class)
+    public ResponseEntity<String> handleNurseNotFound(NurseNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+     @ExceptionHandler(PrescriptionNotFoundException.class)
+    public ResponseEntity<String> handleNoPrescriptionsFound(PrescriptionNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(StayNotFoundException.class)
+    public ResponseEntity<String> handleStayNotFoundException(StayNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
 }
