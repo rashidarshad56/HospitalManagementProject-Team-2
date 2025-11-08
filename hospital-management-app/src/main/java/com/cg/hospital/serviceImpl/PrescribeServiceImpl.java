@@ -1,4 +1,4 @@
-package com.cg.hospital.serviceImpl;
+package com.cg.hospital.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,17 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.cg.hospital.dto.PrescriptionDTO;
 import com.cg.hospital.entity.Prescribes;
+import com.cg.hospital.exception.PrescriptionNotFoundException;
 import com.cg.hospital.repository.PrescribesRepository;
-import com.cg.hospital.service.PrescribesService;
+import com.cg.hospital.service.PrescribeService;
 
 @Service
-public class PrescribeServiceImpl implements PrescribesService{
+public class PrescribeServiceImpl implements PrescribeService {
+
     @Autowired
     private PrescribesRepository prescribesRepo;
 
-	@Override
-	public List<PrescriptionDTO> getPrescriptionsByPatientId(Long patientId) {
-		List<Prescribes> prescribes = prescribesRepo.findByPatient(patientId);
+    @Override
+    public List<PrescriptionDTO> getPrescriptionsByPatientId(Long patientId) {
+        List<Prescribes> prescribes = prescribesRepo.findByPatient(patientId);
+        if (prescribes.isEmpty()) {
+        	throw new PrescriptionNotFoundException(patientId);
+        }
         return prescribes.stream()
             .map(p -> new PrescriptionDTO(
                 p.getPatient(),
@@ -30,6 +35,5 @@ public class PrescribeServiceImpl implements PrescribesService{
                 p.getPhysicianDetails() != null ? p.getPhysicianDetails().getPosition() : "Unknown"
             ))
             .collect(Collectors.toList());
-	}       
+    }
 }
-
