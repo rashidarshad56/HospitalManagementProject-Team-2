@@ -3,12 +3,27 @@ package com.cg.hospital.dto;
 import java.time.LocalDateTime;
 
 public class AppointmentPatientDTO {
+		private String physicianName;
 	    private int appointmentId;
 	    private String patientName;
 	    private String address;
 	    private String phone;
 	    private LocalDateTime starto;
 	    private LocalDateTime endo;
+	    private String examinationRoom;
+	    
+	    public String getPhysicianName() {
+			return physicianName;
+		}
+		public void setPhysicianName(String physicianName) {
+			this.physicianName = physicianName;
+		}
+		public String getExaminationRoom() {
+			return examinationRoom;
+		}
+		public void setExaminationRoom(String examinationRoom) {
+			this.examinationRoom = examinationRoom;
+		}
 		public LocalDateTime getStarto() {
 			return starto;
 		}
@@ -45,13 +60,15 @@ public class AppointmentPatientDTO {
 		public void setPhone(String phone) {
 			this.phone = phone;
 		}
-		public AppointmentPatientDTO(int appointmentId, String patientName, String address, String phone, LocalDateTime starto,LocalDateTime endo) {
+		public AppointmentPatientDTO(String physicianName, int appointmentId, String patientName, String address, String phone, LocalDateTime starto,LocalDateTime endo,String examinationRoom) {
 			super();
+			this.physicianName = physicianName;
 			this.appointmentId = appointmentId;
 			this.patientName = patientName;
 			this.address = address;
 			this.phone = phone;
 			this.starto = starto;
 			this.endo = endo;
+			this.examinationRoom = examinationRoom;
 	}
 }
