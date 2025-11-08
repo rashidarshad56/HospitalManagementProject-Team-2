@@ -29,7 +29,7 @@ public class Appointment {
     private Physician physician;
 
     @Column(name = "PrepNurse") 
-    private int prepNurse;
+    private Integer prepNurse;
 
     @Column(name = "Starto")
     private LocalDateTime starto;
@@ -98,5 +98,6 @@ public class Appointment {
 	}
     
 }
+
 
 
