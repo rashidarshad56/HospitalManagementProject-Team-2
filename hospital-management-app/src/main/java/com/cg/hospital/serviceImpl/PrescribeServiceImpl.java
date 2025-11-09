@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,4 +36,5 @@ public class PrescribeServiceImpl implements PrescribeService {
             ))
             .collect(Collectors.toList());
     }
+
 }
