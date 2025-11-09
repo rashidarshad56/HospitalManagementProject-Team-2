@@ -19,7 +19,7 @@ public class PrescribeServiceImpl implements PrescribesService {
     private PrescribesRepository prescribesRepo;
 
     @Override
-    public List<PrescriptionDTO> getPrescriptionsByPatientId(Long patientId) {
+    public List<PrescriptionDTO> getPrescriptionsByPatientId(int patientId) {
         List<Prescribes> prescribes = prescribesRepo.findByPatient(patientId);
         if (prescribes.isEmpty()) {
         	throw new PrescriptionNotFoundException(patientId);
