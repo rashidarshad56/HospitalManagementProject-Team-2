@@ -18,7 +18,7 @@ public class Prescribes {
 
     @Id
     @Column(name = "Patient")
-    private Long patient;
+    private int patient;
 
     @Id
     @Column(name = "Medication")
@@ -46,11 +46,11 @@ public class Prescribes {
     @JoinColumn(name = "Physician", referencedColumnName = "EmployeeID", insertable = false, updatable = false)
     private Physician physicianDetails;
 
-	public Long getPatient() {
+	public int getPatient() {
 		return patient;
 	}
 
-	public void setPatient(Long patient) {
+	public void setPatient(int patient) {
 		this.patient = patient;
 	}
 
