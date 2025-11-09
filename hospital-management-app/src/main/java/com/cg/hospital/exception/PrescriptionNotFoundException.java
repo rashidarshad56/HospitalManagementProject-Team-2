@@ -1,9 +1,10 @@
 package com.cg.hospital.exception;
 
 
+@SuppressWarnings("serial")
 public class PrescriptionNotFoundException extends RuntimeException {
 
-    public PrescriptionNotFoundException(Long patientId) {
+    public PrescriptionNotFoundException(int patientId) {
         super("No prescriptions found for patient with ID: " + patientId);
     }
 
