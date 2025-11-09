@@ -51,3 +51,4 @@ public class BlockServiceImplTest {
         assertEquals(2, result.get(1).getBlockCode());
     }
 }
+
