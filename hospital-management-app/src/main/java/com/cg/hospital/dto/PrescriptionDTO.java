@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class PrescriptionDTO {
 
-	    private Long patientId;
+	    private int patientId;
 	    private String patientName;
 
 	    private String physicianName;
@@ -18,7 +18,7 @@ public class PrescriptionDTO {
 
 	    
 
-	    public PrescriptionDTO(Long patientId, String patientName, String medicationName, String dose, LocalDateTime date,
+	    public PrescriptionDTO(int patientId, String patientName, String medicationName, String dose, LocalDateTime date,
 	                           String physicianName, String physicianPosition) {
 	        this.patientId = patientId;
 	        this.patientName = patientName;
@@ -29,11 +29,11 @@ public class PrescriptionDTO {
 	        this.physicianPosition = physicianPosition;
 	    }
 
-		public Long getPatientId() {
+		public int getPatientId() {
 			return patientId;
 		}
 
-		public void setPatientId(Long patientId) {
+		public void setPatientId(int patientId) {
 			this.patientId = patientId;
 		}
 
