@@ -306,7 +306,7 @@
 //
 //
 //
-package com.cg.hospital.serviceImpl;
+package com.cg.hospital.ServiceImpl;
 
 import com.cg.hospital.dto.PrescriptionDTO;
 import com.cg.hospital.entity.*;
@@ -433,3 +433,4 @@ class PrescribeServiceImplTest {
     }
 
 }
+
