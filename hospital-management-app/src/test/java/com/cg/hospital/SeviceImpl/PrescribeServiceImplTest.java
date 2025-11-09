@@ -3,7 +3,7 @@
 //
 //
 //
-//package com.cg.hospital.service.impl;
+//package com.cg.hospital.serviceImpl;
 //
 //import com.cg.hospital.dto.PrescriptionDTO;
 //import com.cg.hospital.entity.*;
@@ -306,7 +306,7 @@
 //
 //
 //
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import com.cg.hospital.dto.PrescriptionDTO;
 import com.cg.hospital.entity.*;
@@ -431,4 +431,5 @@ class PrescribeServiceImplTest {
         assertEquals("5", dto2.getDose());
 
     }
+
 }
