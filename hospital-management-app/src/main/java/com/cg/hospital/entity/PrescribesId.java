@@ -8,19 +8,19 @@ public class PrescribesId implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long patient;
+    private int patient;
     private Integer medication;
     private LocalDateTime date;
 
-    public Long getPatient() {
-        return patient;
-    }
+    public int getPatient() {
+		return patient;
+	}
 
-    public void setPatient(Long patient) {
-        this.patient = patient;
-    }
+	public void setPatient(int patient) {
+		this.patient = patient;
+	}
 
-    public Integer getMedication() {
+	public Integer getMedication() {
         return medication;
     }
 
