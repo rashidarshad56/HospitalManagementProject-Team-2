@@ -18,7 +18,7 @@ public class PrescribesController {
     private PrescribesService prescribeService;
 
     @GetMapping("/{id}/prescriptions")
-    public List<PrescriptionDTO> getPrescriptions(@PathVariable Long id) {
+    public List<PrescriptionDTO> getPrescriptions(@PathVariable int id) {
         return prescribeService.getPrescriptionsByPatientId(id);
     }
 }
