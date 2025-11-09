@@ -10,10 +10,10 @@ import com.cg.hospital.dto.PrescriptionDTO;
 import com.cg.hospital.entity.Prescribes;
 import com.cg.hospital.exception.PrescriptionNotFoundException;
 import com.cg.hospital.repository.PrescribesRepository;
-import com.cg.hospital.service.PrescribeService;
+import com.cg.hospital.service.PrescribesService;
 
 @Service
-public class PrescribeServiceImpl implements PrescribeService {
+public class PrescribeServiceImpl implements PrescribesService {
 
     @Autowired
     private PrescribesRepository prescribesRepo;

@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.cg.hospital.dto.AppointmentPatientDTO;
 import com.cg.hospital.entity.Appointment;
 import com.cg.hospital.exception.AppointmentNotFoundException;
-import com.cg.hospital.repositories.AppointmentRepository;
+import com.cg.hospital.repository.AppointmentRepository;
 import com.cg.hospital.service.AppointmentService;
 
 @Service
