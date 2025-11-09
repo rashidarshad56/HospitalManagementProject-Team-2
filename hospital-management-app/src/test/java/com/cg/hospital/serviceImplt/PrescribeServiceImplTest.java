@@ -342,7 +342,7 @@ class PrescribeServiceImplTest {
 
     @Test
     void testGetPrescriptionsByPatientId_WithOnePrescription() {
-        Long patientId = 100000001L;
+        int patientId = 100000001;
 
         Patient patient = new Patient();
         patient.setSsn(patientId);
@@ -378,7 +378,7 @@ class PrescribeServiceImplTest {
 
     @Test
     void testGetPrescriptionsByPatientId_WithMultiplePrescriptions() {
-        Long patientId = 100000004L;
+        int patientId = 100000004;
 
         Patient patient = new Patient();
         patient.setSsn(patientId);
