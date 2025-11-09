@@ -1,12 +1,14 @@
 package com.cg.hospital.dto;
 
 public class PhysicianDTO {
+	private int employeeId;
     private String name;
     private String position;
 
     public PhysicianDTO() {}
 
-    public PhysicianDTO(String name, String position) {
+    public PhysicianDTO(int employeeId, String name, String position) {
+    	this.employeeId=employeeId;
         this.name = name;
         this.position = position;
     }
@@ -16,4 +18,12 @@ public class PhysicianDTO {
 
     public String getPosition() { return position; }
     public void setPosition(String position) { this.position = position; }
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
 }
