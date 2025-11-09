@@ -99,3 +99,4 @@ public class AppointmentServiceImplTest {
 	        verify(appointmentRepository, times(2)).findByPhysician_EmployeeId(1);
 	    }
 }
+
