@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleNurseNotFound(NurseNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
-     @ExceptionHandler(PrescriptionNotFoundException.class)
+    @ExceptionHandler(PrescriptionNotFoundException.class)
     public ResponseEntity<String> handleNoPrescriptionsFound(PrescriptionNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
@@ -35,4 +35,5 @@ public class GlobalExceptionHandler {
     }
 
 }
+
 
