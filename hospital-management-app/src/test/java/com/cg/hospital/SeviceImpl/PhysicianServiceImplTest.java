@@ -1,9 +1,7 @@
 package com.cg.hospital.SeviceImpl;
-
+ 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
  
 import java.util.Arrays;
 import java.util.List;
@@ -24,74 +22,73 @@ import com.cg.hospital.repository.PhysicianRepository;
 import com.cg.hospital.serviceImpl.PhysicianServiceImpl;
  
 public class PhysicianServiceImplTest {
-	    @Mock
-	    private PhysicianRepository physicianRepo;
  
-	    @Mock
-	    private DepartmentRepository departmentRepo;
+    @Mock
+    private PhysicianRepository physicianRepo;
  
-	    @InjectMocks
-	    private PhysicianServiceImpl physicianService;
+    @Mock
+    private DepartmentRepository departmentRepo;
  
-	    @BeforeEach
-	    void setUp() {
-	        MockitoAnnotations.openMocks(this);
-	    }
+    @InjectMocks
+    private PhysicianServiceImpl physicianService;
  
-	    @Test
-	    void testGetAllPhysicians() {
-	        Physician p1 = new Physician();
-	        p1.setEmployeeId(1);
-	        p1.setName("John Dorian");
-	        p1.setPosition("Staff Internist");
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
  
-	        Physician p2 = new Physician();
-	        p2.setEmployeeId(2);
-	        p2.setName("Elliot Reid");
-	        p2.setPosition("Attending Physician");
+    @Test
+    void testGetAllPhysicians() {
+        Physician p1 = new Physician();
+        p1.setEmployeeId(1);
+        p1.setName("John Dorian");
+        p1.setPosition("Staff Internist");
  
-	        when(physicianRepo.findAllPhysicians()).thenReturn(Arrays.asList(
-	                new PhysicianDTO(p1.getEmployeeId(), p1.getName(), p1.getPosition()),
-	                new PhysicianDTO(p2.getEmployeeId(), p2.getName(), p2.getPosition())
-	        ));
+        Physician p2 = new Physician();
+        p2.setEmployeeId(2);
+        p2.setName("Elliot Reid");
+        p2.setPosition("Attending Physician");
  
-	        List<PhysicianDTO> result = physicianService.getAllPhysicians();
+        when(physicianRepo.findAll()).thenReturn(Arrays.asList(p1, p2));
  
-	        assertEquals(2, result.size());
-	        assertEquals(1,result.get(0).getEmployeeId());
-	        assertEquals("John Dorian", result.get(0).getName());
-	        assertEquals("Attending Physician", result.get(1).getPosition());
-	        verify(physicianRepo, times(1)).findAllPhysicians();
-	    }
+        List<PhysicianDTO> result = physicianService.getAllPhysicians();
  
-	    @Test
-	    void testGetPhysiciansByDepartment() {
-	        Department dept = new Department();
-	        dept.setDepartmentId(10);
-	        dept.setName("Cardiology");
+        assertEquals(2, result.size());
+        assertEquals(1, result.get(0).getEmployeeId());
+        assertEquals("John Dorian", result.get(0).getName());
+        assertEquals("Attending Physician", result.get(1).getPosition());
  
-	        Physician p1 = new Physician();
-	        p1.setEmployeeId(3);
-	        p1.setName("Christopher Turk");
-	        p1.setPosition("Surgical Attending Physician");
+        verify(physicianRepo, times(1)).findAll();
+    }
  
-	        Physician p2 = new Physician();
-	        p2.setEmployeeId(4);
-	        p2.setName("Percival Cox");
-	        p2.setPosition("Senior Attending Physician");
+    @Test
+    void testGetPhysiciansByDepartment() {
+        Department dept = new Department();
+        dept.setDepartmentId(10);
+        dept.setName("Cardiology");
  
-	        when(departmentRepo.findById(10)).thenReturn(Optional.of(dept));
-	        when(physicianRepo.findByAffiliationsDepartmentDepartmentId(10))
-	                .thenReturn(Arrays.asList(p1, p2));
+        Physician p1 = new Physician();
+        p1.setEmployeeId(3);
+        p1.setName("Christopher Turk");
+        p1.setPosition("Surgical Attending Physician");
  
-	        DepartmentPhysicianResponseDTO response = physicianService.getPhysiciansByDepartment(10);
+        Physician p2 = new Physician();
+        p2.setEmployeeId(4);
+        p2.setName("Percival Cox");
+        p2.setPosition("Senior Attending Physician");
  
-	        assertEquals("Cardiology", response.getDepartmentName());
-	        assertEquals(2, response.getPhysicians().size());
-	        assertEquals("Christopher Turk", response.getPhysicians().get(0).getName());
-	        assertEquals("Senior Attending Physician", response.getPhysicians().get(1).getPosition());
+        when(departmentRepo.findById(10)).thenReturn(Optional.of(dept));
+        when(physicianRepo.findByAffiliationsDepartmentDepartmentId(10))
+                .thenReturn(Arrays.asList(p1, p2));
  
-	        verify(departmentRepo, times(1)).findById(10);
-	        verify(physicianRepo, times(1)).findByAffiliationsDepartmentDepartmentId(10);
-	    }
+        DepartmentPhysicianResponseDTO response = physicianService.getPhysiciansByDepartment(10);
+ 
+        assertEquals("Cardiology", response.getDepartmentName());
+        assertEquals(2, response.getPhysicians().size());
+        assertEquals("Christopher Turk", response.getPhysicians().get(0).getName());
+        assertEquals("Senior Attending Physician", response.getPhysicians().get(1).getPosition());
+ 
+        verify(departmentRepo, times(1)).findById(10);
+        verify(physicianRepo, times(1)).findByAffiliationsDepartmentDepartmentId(10);
+    }
 }
