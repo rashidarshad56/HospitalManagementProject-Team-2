@@ -1,4 +1,4 @@
-package com.cg.hospital.service.impl;
+package com.cg.hospital.serviceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
@@ -81,4 +81,5 @@ public class StayServiceImplTest {
 
         verify(stayRepository, times(1)).findByPatient_Ssn(ssn);
     }
+
 }
