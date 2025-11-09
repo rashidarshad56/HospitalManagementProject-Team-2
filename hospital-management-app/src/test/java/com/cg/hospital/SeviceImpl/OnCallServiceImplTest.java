@@ -1,4 +1,4 @@
-package com.cg.hospital.serviceImpl;
+package com.cg.hospital.ServiceImpl;
 
 import com.cg.hospital.entity.OnCall;
 import com.cg.hospital.repository.OnCallRepository;
@@ -51,3 +51,4 @@ class OnCallServiceImplTest {
         assertEquals(LocalDateTime.of(2008, 11, 5, 19, 0), result.get(1).getOnCallEnd());
     }
 }
+
