@@ -1,4 +1,4 @@
-package com.cg.hospital.serviceImpl;
+package com.cg.hospital.ServiceImpl;
 
 import com.cg.hospital.entity.Patient;
 import com.cg.hospital.entity.Stay;
@@ -75,4 +75,5 @@ class StayServiceImplTest {
  
         verify(stayRepository, times(1)).findByPatient_Ssn(ssn);
     }
+
 }
