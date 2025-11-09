@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
 	    public ResponseEntity<String> handleAppointmentNotFound(AppointmentNotFoundException ex) {
 	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
 	    }
-     @ExceptionHandler(NurseNotFoundException.class)
+    @ExceptionHandler(NurseNotFoundException.class)
     public ResponseEntity<String> handleNurseNotFound(NurseNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
@@ -35,3 +35,4 @@ public class GlobalExceptionHandler {
     }
 
 }
+
