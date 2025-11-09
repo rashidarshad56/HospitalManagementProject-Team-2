@@ -8,5 +8,5 @@ import com.cg.hospital.entity.Prescribes;
 import com.cg.hospital.entity.PrescribesId;
 
 public interface PrescribesRepository extends JpaRepository<Prescribes, PrescribesId>{
-	List<Prescribes> findByPatient(Long patient);
+	List<Prescribes> findByPatient(int patientId);
 }
