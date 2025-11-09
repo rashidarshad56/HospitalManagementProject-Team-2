@@ -40,7 +40,7 @@ public List<PhysicianDTO> getAllPhysicians() {
 
         // Convert to DTO (only name & position)
         List<PhysicianDTO> physicianDTOs = physicians.stream()
-                .map(p -> new PhysicianDTO(p.getName(), p.getPosition()))
+                .map(p -> new PhysicianDTO(p.getEmployeeId(),p.getName(), p.getPosition()))
                 .collect(Collectors.toList());
 
         // Return response with department name
